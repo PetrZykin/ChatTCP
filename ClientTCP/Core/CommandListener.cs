@@ -1,8 +1,7 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClientTCP.Core
 {
@@ -11,6 +10,8 @@ namespace ClientTCP.Core
         public delegate bool Action(string args);
         private readonly Dictionary<string, Action> dictionaryCommand;
         Client client;
+
+        static Logger logger = LogManager.GetCurrentClassLogger();
 
         public CommandListener()
         {
@@ -41,7 +42,8 @@ namespace ClientTCP.Core
         }
         private bool LogLevel(string args)
         {
-            throw new NotImplementedException();
+            logerLevel = args;
+            return true;
         }
         private bool Send(string args)
         {
