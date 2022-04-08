@@ -1,4 +1,5 @@
 ﻿using NLog;
+using NLog.Fluent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,11 +26,13 @@ namespace ClientTCP.Core
                 {"loglevel", LogLevel},
                 {"quit", Quit}
             };
+            Log.Info($"Init Commadn listener and client");            
         }
 
         private bool SetName(string args)
         {
             client.UserName = args;
+            Log.Info($"Add user name");
             return true;
         }
 
@@ -42,7 +45,6 @@ namespace ClientTCP.Core
         }
         private bool LogLevel(string args)
         {
-            logerLevel = args;
             return true;
         }
         private bool Send(string args)

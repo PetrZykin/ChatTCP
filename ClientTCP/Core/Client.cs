@@ -109,7 +109,7 @@ namespace ClientTCP.Core
                 }
                 catch
                 {
-                    Console.WriteLine(" > Подключение прервано!");
+                    Console.WriteLine(" > EROR: Not connection!");
                     Console.ReadLine();
                     Disconnect();
                 }
